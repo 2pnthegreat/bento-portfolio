@@ -30,8 +30,8 @@ export default function Home() {
         />
 
         {/* Row 3: Resume (1), CV (1), Project 2 (2) */}
-        <DocumentCard title="Resume" href="#" color="bg-gray-700" />
-        <DocumentCard title="CV" href="#" color="bg-gray-600" />
+        <DocumentCard title="Resume" href="Resume.pdf" color="bg-gray-700" />
+        <DocumentCard title="CV" href="cv.pdf" color="bg-gray-600" />
         <ProjectCard
           id="2"
           title="Fixed Asset"
