@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 
-export default function EProcurementPage() {
+export default async function EProcurementPage() {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     return (
         <main className="min-h-screen flex flex-col items-center py-10 px-5 bg-[#f0f2f5]">
             <div className="max-w-[1000px] w-full bg-white rounded-[var(--radius-card)] p-8 shadow-sm">
