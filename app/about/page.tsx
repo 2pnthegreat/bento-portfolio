@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 
-export default function AboutPage() {
+export default async function AboutPage() {
+    await new Promise((resolve) => setTimeout(resolve, 500));
     return (
         <main className="min-h-screen flex flex-col items-center py-10 px-5">
             <div className="max-w-[800px] w-full bg-card-bg rounded-[var(--radius-card)] p-8 shadow-sm">
