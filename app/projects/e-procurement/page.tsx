@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "E-Procurement",
+    description: "GISTDA – E-Procurement (Joget Platform)",
+}
 
 export default async function EProcurementPage() {
     await new Promise((resolve) => setTimeout(resolve, 1000));

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Kanit } from "next/font/google";
 import "./globals.css";
 
+
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -15,10 +17,13 @@ const kanit = Kanit({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "My Bento Portfolio",
-  description: "A Bento Box style portfolio",
-};
+export const metadata = {
+  title: "2pnthegreat Portfolio",
+  description: "Portfolio of 2pnthegreat",
+  icons: {
+    icon: '/icon.png',
+  },
+}
 
 export default function RootLayout({
   children,

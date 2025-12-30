@@ -1,5 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "About",
+    description: "About 2pnthegreat",
+}
 
 export default async function AboutPage() {
     await new Promise((resolve) => setTimeout(resolve, 500));

@@ -7,7 +7,10 @@ import {
     SiMysql,
     SiPostgresql,
     SiDbeaver,
-    SiPrisma
+    SiPrisma,
+    SiSupabase,
+    SiVercel,
+
 } from 'react-icons/si';
 
 
@@ -28,6 +31,8 @@ export default function ToolsCard() {
                 <SiDbeaver className="text-3xl text-[#382923]" title="DBeaver" />
 
                 <SiPrisma className="text-3xl text-[#2D3748]" title="Prisma" />
+                <SiSupabase className="text-3xl text-[#3ECF8E]" title="Supabase" />
+                <SiVercel className="text-3xl text-black" title="Vercel" />
             </div>
             <p className="text-text-sub text-xs mt-4 text-center">My tech stack</p>
         </div>

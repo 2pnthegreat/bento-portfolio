@@ -9,6 +9,7 @@ import ContactCard from "./components/ContactCard";
 import DocumentCard from "./components/DocumentCard";
 import VisitorCounterCard from "./components/VisitorCounterCard";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center py-10">
