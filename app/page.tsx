@@ -11,7 +11,7 @@ import DocumentCard from "./components/DocumentCard";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center py-10">
+    <main className="min-h-screen flex items-center justify-center py-10 px-4 md:px-0">
       <BentoGrid>
         {/* Row 1: Profile (2), Location (1), Tools (1) */}
         <ProfileCard />
@@ -32,7 +32,7 @@ export default function Home() {
 
         {/* Row 3: Resume (1), CV (1), Project 2 (2) */}
         <DocumentCard title="Resume" href="Resume.pdf" color="bg-gray-700" />
-        <DocumentCard title="CV" href="/cv.html" color="bg-gray-600" />
+        <DocumentCard title="CV" href="/CV_PDF.pdf" color="bg-gray-600" targetBlank={false} />
         <ProjectCard
           id="2"
           title="Fixed Asset"

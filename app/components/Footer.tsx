@@ -17,7 +17,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-10">
+        <div className="grid grid-cols-2 md:flex md:flex-row gap-10 w-full md:w-auto">
           <div className="flex flex-col gap-2">
             <h4 className="text-sm font-semibold text-text-main uppercase tracking-wider">Navigation</h4>
             <Link href="/" className="text-sm text-text-sub hover:text-accent transition-colors">Home</Link>

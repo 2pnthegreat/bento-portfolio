@@ -5,14 +5,15 @@ interface DocumentCardProps {
     title: string;
     href: string;
     color?: string;
+    targetBlank?: boolean;
 }
 
-export default function DocumentCard({ title, href, color = "bg-gray-800" }: DocumentCardProps) {
+export default function DocumentCard({ title, href, color = "bg-gray-800", targetBlank = true }: DocumentCardProps) {
     return (
         <a
             href={href}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={targetBlank ? "_blank" : undefined}
+            rel={targetBlank ? "noopener noreferrer" : undefined}
             className={`${color} text-white rounded-[var(--radius-card)] p-6 flex flex-col items-center justify-center shadow-sm transition-all duration-300 hover:scale-[var(--hover-scale)] hover:shadow-md col-span-1 h-full min-h-[180px]`}
         >
             <div className="text-4xl mb-3">
