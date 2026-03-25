@@ -11,6 +11,7 @@ import {
     SiSupabase,
     SiVercel,
     SiGo,
+    SiPostman,
 } from 'react-icons/si';
 
 
@@ -31,6 +32,8 @@ export default function ToolsCard() {
                 <SiPrisma className="text-3xl text-[#2D3748] dark:text-[#94a3b8]" title="Prisma" />
                 <SiSupabase className="text-3xl text-[#3ECF8E]" title="Supabase" />
                 <SiVercel className="text-3xl text-text-main" title="Vercel" />
+                <img src="/playwright.png" alt="Playwright" className="w-[30px] h-[30px]" title="Playwright" />
+                <SiPostman className="text-3xl text-[#FF6C37]" title="Postman" />
             </div>
             <p className="text-text-sub text-xs mt-4 text-center">My tech stack</p>
         </div>
