@@ -1,13 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --bg-color: #f0f2f5;
+  --bg-color: #f8fafc;
   --card-bg: #ffffff;
-  --text-main: #1d1d1f;
-  --text-sub: #86868b;
-  --radius: 24px;
+  --text-main: #0f172a;
+  --text-sub: #64748b;
+  --accent: #3b82f6;
+  --nav-bg: #ffffff;
+  --radius: 16px;
   --gap: 20px;
   --hover-scale: 1.02;
+  --border-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-sub: #94a3b8;
+  --accent: #60a5fa;
+  --nav-bg: #1e293b;
+  --border-color: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -15,6 +28,9 @@
   --color-card-bg: var(--card-bg);
   --color-text-main: var(--text-main);
   --color-text-sub: var(--text-sub);
+  --color-accent: var(--accent);
+  --color-nav-bg: var(--nav-bg);
+  --color-border-color: var(--border-color);
 
   --radius-card: var(--radius);
 
@@ -25,4 +41,37 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   font-family: var(--font-kanit), var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.glass {
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-link {
+  @apply text-sm font-medium text-text-sub hover:text-text-main transition-colors duration-200;
+}
+
+.nav-link.active {
+  @apply text-text-main;
+}
+
+/* Custom Scrollbar for dark mode */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-sub);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-main);
 }

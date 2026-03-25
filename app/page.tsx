@@ -7,7 +7,6 @@ import ToolsCard from "./components/ToolsCard";
 import QuoteCard from "./components/QuoteCard";
 import ContactCard from "./components/ContactCard";
 import DocumentCard from "./components/DocumentCard";
-import VisitorCounterCard from "./components/VisitorCounterCard";
 
 
 export default function Home() {
@@ -24,6 +23,7 @@ export default function Home() {
         <SocialCard platform="github" href="https://github.com/2pnthegreat" />
         <ProjectCard
           id="1"
+          htmlId="work"
           title="E-Procurement"
           category="Web Application"
           image="/e-procurement-cover.jpeg"
@@ -32,7 +32,7 @@ export default function Home() {
 
         {/* Row 3: Resume (1), CV (1), Project 2 (2) */}
         <DocumentCard title="Resume" href="Resume.pdf" color="bg-gray-700" />
-        <DocumentCard title="CV" href="cv.pdf" color="bg-gray-600" />
+        <DocumentCard title="CV" href="/cv.html" color="bg-gray-600" />
         <ProjectCard
           id="2"
           title="Fixed Asset"
@@ -41,10 +41,19 @@ export default function Home() {
           className="col-span-1 md:col-span-2"
         />
 
-        {/* Row 4: Quote (2), Contact (1), Visitor (1) */}
+        {/* Row 4: Quote (2), Sukreep POS (2) */}
         <QuoteCard className="col-span-1 md:col-span-2" />
-        <ContactCard />
-        <VisitorCounterCard />
+        <ProjectCard
+          id="sukreep"
+          title="Sukreep POS"
+          category="SaaS ERP & POS"
+          image="/sukreep-cover.png"
+          href="https://sukreep.com"
+          className="col-span-1 md:col-span-2"
+        />
+
+        {/* Row 5: Contact (4) */}
+        <ContactCard htmlId="contact" className="col-span-1 md:col-span-4" />
       </BentoGrid>
     </main>
   );

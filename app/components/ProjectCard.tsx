@@ -8,6 +8,8 @@ interface ProjectCardProps {
     category: string;
     image: string;
     className?: string;
+    htmlId?: string;
+    href?: string;
 }
 
 export default function ProjectCard({
@@ -16,12 +18,18 @@ export default function ProjectCard({
     category,
     image,
     className = "",
+    htmlId,
+    href,
 }: ProjectCardProps) {
-    const slug = id === "1" ? "e-procurement" : id === "2" ? "fix-asset" : id;
+    const defaultHref = id === "1" ? "/projects/e-procurement" : id === "2" ? "/projects/fix-asset" : `/projects/${id}`;
+    const finalHref = href || defaultHref;
 
     return (
         <Link
-            href={`/projects/${slug}`}
+            href={finalHref}
+            id={htmlId}
+            target={href ? "_blank" : undefined}
+            rel={href ? "noopener noreferrer" : undefined}
             className={`bg-card-bg rounded-[var(--radius-card)] overflow-hidden relative group shadow-sm transition-all duration-300 hover:scale-[var(--hover-scale)] hover:shadow-md ${className}`}
         >
             <div className="absolute inset-0">

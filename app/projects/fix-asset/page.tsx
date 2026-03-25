@@ -11,11 +11,8 @@ export const metadata: Metadata = {
 export default async function FixAssetPage() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return (
-        <main className="min-h-screen flex flex-col items-center py-10 px-5 bg-[#f0f2f5]">
-            <div className="max-w-[1000px] w-full bg-white rounded-[var(--radius-card)] p-8 shadow-sm">
-                <Link href="/" className="inline-block mb-6 text-sm font-medium text-gray-500 hover:text-black transition-colors">
-                    ← Back to Home
-                </Link>
+        <main className="min-h-screen flex flex-col items-center py-10 px-5 bg-bg-color">
+            <div className="max-w-[1000px] w-full bg-card-bg rounded-[var(--radius-card)] p-8 shadow-sm">
 
                 {/* Header */}
                 <div className="mb-12">

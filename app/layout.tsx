@@ -25,17 +25,24 @@ export const metadata = {
   },
 }
 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th">
+    <html lang="th" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${kanit.variable} antialiased font-sans`}
+        className={`${inter.variable} ${kanit.variable} antialiased font-sans min-h-screen flex flex-col`}
       >
-        {children}
+        <Navbar />
+        <main className="flex-grow pt-20">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

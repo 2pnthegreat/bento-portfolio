@@ -12,9 +12,6 @@ export default async function AboutPage() {
     return (
         <main className="min-h-screen flex flex-col items-center py-10 px-5">
             <div className="max-w-[800px] w-full bg-card-bg rounded-[var(--radius-card)] p-8 shadow-sm">
-                <Link href="/" className="inline-block mb-6 text-sm font-medium text-gray-500 hover:text-black transition-colors">
-                    ← Back to Home
-                </Link>
 
                 <div className="flex flex-col md:flex-row gap-8 items-start">
                     <div className="w-32 h-32 rounded-full bg-gray-200 bg-cover bg-center flex-shrink-0" style={{ backgroundImage: "url('/about.jpg')" }}></div>
@@ -22,15 +19,16 @@ export default async function AboutPage() {
                     <div>
                         <h1 className="text-3xl font-bold mb-4">About Me</h1>
                         <p className="text-text-sub leading-relaxed mb-6">
-                            สวัสดีครับ ผมเป็นนักพัฒนาระบบฝั่ง Backend ที่มีประสบการณ์ในการพัฒนาและนำระบบไปใช้งานจริง
-                            โดยให้ความสำคัญกับการออกแบบโครงสร้างระบบ การจัดการข้อมูล และการทำงานของ workflow
-                            เพื่อให้ระบบสามารถใช้งานได้อย่างมีเสถียรภาพและรองรับการเปลี่ยนแปลงในอนาคต
+                            สวัสดีครับ ผมเป็นนักพัฒนาระบบฝั่ง Backend ที่มีประสบการณ์ในการพัฒนาและออกแบบโครงสร้างระบบ
+                            ทั้งในรูปแบบ High-code (Go-Fiber, Next.js) และ Low-code platform (Joget DX7)
+                            โดยมุ่งเน้นการสร้างระบบที่มีประสิทธิภาพสูง รองรับผู้ใช้งานจำนวนมาก (Multi-tenancy) และมี Workflow ที่ซับซ้อน
                         </p>
 
                         <p className="text-text-sub leading-relaxed mb-6">
-                            ผมมีประสบการณ์ในการพัฒนา Low-code platform อย่าง Joget DX7 แบบครบกระบวนการ
-                            ตั้งแต่การออกแบบ workflow, การสร้าง form, การจัดการสิทธิ์ผู้ใช้งาน
-                            ไปจนถึงการเชื่อมต่อกับระบบภายนอกและนำระบบไปใช้งานจริงในสภาพแวดล้อมการทำงาน
+                            ผลงานล่าสุดคือการพัฒนาระบบ <strong>Sukreep (SaaS ERP & POS)</strong> ที่ครอบคลุมทุกวงจรธุรกิจ
+                            ตั้งแต่ระบบจัดซื้อ คลังสินค้า ไปจนถึงระบบหน้าร้านและบัญชีที่แม่นยำ 
+                            พร้อมทั้งมีประสบการณ์ในการออกแบบและพัฒนาระบบ Joget DX สำหรับหน่วยงานภาครัฐ 
+                            เพื่อให้การทำงานในองค์กรเป็นไปได้อย่างไร้รอยต่อและมีความเสถียรภาพสูงสุด
                         </p>
 
                         <h2 className="text-xl font-semibold mb-3">Education</h2>
@@ -72,7 +70,25 @@ export default async function AboutPage() {
                                 <li>รายละเอียดงาน: ออกแบบและพัฒนาระบบ Joget DX
                                     สำหรับหน่วยงานภาครัฐ (เช่น GISTDA)</li>
                             </ul>
+                        </div>
 
+                        <div className="mb-8">
+                            <h3 className="text-lg text-text-sub text-gray mb-2">
+                                [ 26 มกราคม 2569 – ปัจจุบัน ]
+                            </h3>
+
+                            <ul className="text-text-sub space-y-2">
+                                <li>บริษัท SIAM INNOVATOR CO., LTD.</li>
+                                <li>ตำแหน่งงาน: Jr.web developer</li>
+                                <li>ระดับตำแหน่ง: เจ้าหน้าที่</li>
+                                <li className="leading-relaxed">
+                                    รายละเอียดงาน: พัฒนา Sukreep: ระบบ SaaS ERP & POS เต็มรูปแบบ (Go-Fiber & Next.js) 
+                                    สำหรับบริหารธุรกิจค้าปลีกและร้านอาหารแบบหลายสาขา (Multi-tenancy) ครอบคลุมวงจรธุรกิจตั้งแต่ระบบจัดซื้อ 
+                                    (Procurement Workflow) และการควบคุมคลังสินค้าแบบ Real-time ไปจนถึงระบบขายหน้าร้าน (Hybrid POS) 
+                                    ที่ผสานการสั่งอาหารผ่าน QR Menu ของลูกค้าอย่างไร้รอยต่อ พร้อมระบบบัญชีที่รองรับการคำนวณภาษี (VAT, WHT) 
+                                    และการวิเคราะห์รายได้-รายจ่ายที่แม่นยำ บนโครงสร้างระบบที่เน้น Performance สูงและการขยายตัวระดับ Enterprise
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
