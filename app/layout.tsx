@@ -1,29 +1,53 @@
 import type { Metadata } from "next";
-import { Inter, Kanit } from "next/font/google";
+import { Poppins, Kanit } from "next/font/google";
+import { MotionConfig } from "motion/react";
+import { site } from "@/data/site";
 import "./globals.css";
 
 
 
-const inter = Inter({
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-poppins",
   display: "swap",
 });
 
 const kanit = Kanit({
-  weight: ["300", "400", "600"],
+  weight: ["300", "400", "500", "600"],
   subsets: ["thai", "latin"],
   variable: "--font-kanit",
   display: "swap",
 });
 
-export const metadata = {
-  title: "2pnthegreat Portfolio",
-  description: "Portfolio of 2pnthegreat",
+const siteTitle = `${site.name.en} — ${site.role}`;
+const siteDescription =
+  "Full-stack & low-code developer building enterprise systems: SaaS ERP/POS with Go-Fiber and Next.js, Joget DX workflows for government agencies, and Playwright test automation.";
+
+export const metadata: Metadata = {
+  title: {
+    default: siteTitle,
+    template: `%s | ${site.name.en}`,
+  },
+  description: siteDescription,
   icons: {
     icon: '/icon.png',
   },
+  openGraph: {
+    type: "website",
+    title: siteTitle,
+    description: siteDescription,
+    siteName: site.name.en,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
 }
+
+// Applies the saved theme before first paint so dark-mode visitors don't see a light flash
+const themeScript = `try{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light')}catch(e){}`;
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -34,15 +58,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className="scroll-smooth">
+    <html lang="th" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
-        className={`${inter.variable} ${kanit.variable} antialiased font-sans min-h-screen flex flex-col`}
+        className={`${poppins.variable} ${kanit.variable} antialiased font-sans min-h-screen flex flex-col`}
       >
-        <Navbar />
-        <main className="flex-grow pt-20">
-          {children}
-        </main>
-        <Footer />
+        <MotionConfig reducedMotion="user">
+          <Navbar />
+          <main className="flex-grow pt-20">
+            {children}
+          </main>
+          <Footer />
+        </MotionConfig>
       </body>
     </html>
   );
