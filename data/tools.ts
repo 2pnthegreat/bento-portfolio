@@ -1,5 +1,6 @@
 import type { IconType } from 'react-icons';
 import { FaReact, FaNodeJs, FaGitAlt } from 'react-icons/fa';
+import { RiRobot2Line } from 'react-icons/ri';
 import {
     SiNextdotjs,
     SiMysql,
@@ -49,12 +50,18 @@ export const toolGroups: ToolGroup[] = [
         ],
     },
     {
+        label: 'Testing',
+        tools: [
+            { name: 'Playwright', icon: '/playwright.png' },
+            { name: 'Postman', icon: SiPostman },
+            { name: 'TestSprite (AI)', icon: RiRobot2Line },
+        ],
+    },
+    {
         label: 'Tooling',
         tools: [
             { name: 'Git', icon: FaGitAlt },
             { name: 'Vercel', icon: SiVercel },
-            { name: 'Playwright', icon: '/playwright.png' },
-            { name: 'Postman', icon: SiPostman },
         ],
     },
 ];

@@ -8,7 +8,7 @@ export const site = {
     },
     role: 'Full-stack Developer',
     /** Shown one after another under the name on the home page; first one is where it settles */
-    roles: ['Full-stack Developer', 'Backend Developer', 'Low-code Developer'],
+    roles: ['Full-stack Developer', 'Backend Developer', 'Low-code Developer', 'Test Automation'],
     currentPosition: 'Junior Web Developer · Siam Innovator',
     tagline: 'Fullstack Developer & Low-code specialized in building scalable enterprise systems and automated workflows.',
     email: 'soccer_rsm@hotmail.com',

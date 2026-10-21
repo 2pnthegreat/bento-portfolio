@@ -22,7 +22,7 @@ const kanit = Kanit({
 
 const siteTitle = `${site.name.en} — ${site.role}`;
 const siteDescription =
-  "Full-stack & low-code developer building enterprise systems: SaaS ERP/POS with Go-Fiber and Next.js, and Joget DX workflows for government agencies.";
+  "Full-stack & low-code developer building enterprise systems: SaaS ERP/POS with Go-Fiber and Next.js, Joget DX workflows for government agencies, and Playwright test automation.";
 
 export const metadata: Metadata = {
   title: {
