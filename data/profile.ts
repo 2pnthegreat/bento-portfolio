@@ -14,7 +14,7 @@ export const profile = {
 
 // Numbers kept separate from labels so CountUp can animate them
 export const stats = [
-    { value: 2, suffix: '+', label: 'ปีประสบการณ์' }, // since the internship, Jul 2567
+    { value: 2, suffix: '+', label: 'ปีประสบการณ์' }, // since the first internship, Apr 2567
     { value: 3, suffix: '', label: 'ระบบที่พัฒนา' }, // Sukreep, E-Procurement, Fixed Asset
     { value: 2, suffix: '', label: 'แพลตฟอร์ม (High-code & Low-code)' }, // Go-Fiber/Next.js and Joget DX
 ];
@@ -63,5 +63,14 @@ export const experience: Experience[] = [
         title: 'นักศึกษาฝึกงาน',
         company: 'Cyber Kings Consulting',
         highlights: ['เรียนรู้และฝึกพัฒนาแอปพลิเคชันบน Joget DX'],
+    },
+    {
+        period: 'เม.ย. 2567 – พ.ค. 2567',
+        title: 'Frontend Developer (ฝึกงาน)',
+        company: 'Bright Expert Company Limited',
+        highlights: [
+            'ช่วยพัฒนาโมดูลระบบเงินเดือนและประกันสังคม (Flow HR)',
+            'แก้บั๊กและปรับปรุง Employee Dashboard ด้วย React และ Ant Design',
+        ],
     },
 ];

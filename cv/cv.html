@@ -18,7 +18,16 @@
                 background-color: white !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
-                zoom: 0.82;
+                zoom: 0.8;
+            }
+
+            /* Tighter vertical rhythm so the whole CV fits on one A4 page */
+            .space-y-6> :not([hidden])~ :not([hidden]) {
+                margin-top: 1rem !important;
+            }
+
+            .mb-5 {
+                margin-bottom: 0.75rem !important;
             }
 
             .no-print {
@@ -63,7 +72,7 @@
         <div class="flex justify-between items-start mb-6">
             <div>
                 <h1 class="text-3xl font-bold text-gray-900 mb-1">Kampanart Poonpanao</h1>
-                <p class="text-lg font-bold text-emerald-600 mb-4">Fullstack Developer | Low-code (Joget)</p>
+                <p class="text-lg font-bold text-emerald-600 mb-4">Full-stack Developer | Low-code (Joget) | Test Automation</p>
 
                 <div class="grid grid-cols-2 gap-x-12 gap-y-1 text-[12px] text-gray-700">
                     <a href="mailto:soccer_rsm@hotmail.com"
@@ -104,7 +113,7 @@
                 </div>
             </div>
             <div class="w-32 h-40 border-2 border-emerald-100 overflow-hidden shadow-sm">
-                <img src="./portrait.png" alt="Profile" class="w-full h-full object-cover">
+                <img src="../public/portrait.png" alt="Profile" class="w-full h-full object-cover">
             </div>
         </div>
 
@@ -115,15 +124,12 @@
                 <h2 class="text-lg font-bold border-b-2 border-gray-800 pb-1 mb-2 uppercase tracking-wider">Professional
                     Summary</h2>
                 <p class="text-[12px] leading-relaxed text-gray-700">
-                    A results-driven <strong>Fullstack Developer</strong> with extensive expertise in building
-                    enterprise-grade systems
-                    using both <strong>High-code (Go-Fiber, Next.js)</strong> and <strong>Low-code (Joget DX)</strong>
-                    platforms. Proven track record in
-                    developing complex <strong>SaaS ERP & POS solutions (Sukreep)</strong> and government systems
-                    (e-Procurement, Fixed
-                    Asset Management). Specialized in multi-tenancy architecture, real-time inventory, and end-to-end
-                    workflow automation. Committed to delivering high-performance, scalable software that drives
-                    business growth.
+                    <strong>Full-stack Developer</strong> with 2+ years of hands-on experience building business
+                    systems on both <strong>High-code (Go-Fiber, Next.js)</strong> and <strong>Low-code (Joget DX)</strong>
+                    platforms. Currently developing <strong>Sukreep</strong>, a multi-tenant SaaS ERP &amp; POS, and
+                    previously built e-Procurement and Fixed Asset Management systems for GISTDA. Experienced in
+                    workflow automation, real-time inventory and multi-branch data, and in keeping releases stable with
+                    <strong>automated end-to-end tests (Playwright)</strong>.
                 </p>
             </section>
 
@@ -156,6 +162,10 @@
                             accurate income-expense analytics.</li>
                         <li>Designed the system for high performance and enterprise-level scalability, focusing on
                             efficient data processing and system stability.</li>
+                        <li><strong>Test Automation:</strong> Automated Sukreep's regression tests with Playwright and
+                            AI-assisted testing (TestSprite), replacing repetitive manual testing.</li>
+                        <li><strong>IT Support:</strong> Handle in-office IT support: coordinating with the internet
+                            service provider, maintaining printers, and advising users on the company's software.</li>
                     </ul>
                 </div>
 
@@ -233,11 +243,19 @@
                     </div>
                     <div>
                         <h4 class="font-bold text-gray-900 mb-10.5">Database Management</h4>
-                        <p class="text-gray-700">MySQL, PostgreSQL</p>
+                        <p class="text-gray-700">MySQL, PostgreSQL, Supabase, Prisma ORM, DBeaver</p>
                     </div>
                     <div>
-                        <h4 class="font-bold text-gray-900 mb-10.5">Tools & Others</h4>
-                        <p class="text-gray-700">Git / GitHub, Notion, Joget DX, Playwright, Postman</p>
+                        <h4 class="font-bold text-gray-900 mb-10.5">Testing &amp; QA</h4>
+                        <p class="text-gray-700">Playwright (E2E), Postman (API), TestSprite (AI-assisted testing)</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-10.5">Tools &amp; Others</h4>
+                        <p class="text-gray-700">Git / GitHub, Joget DX, Vercel, Notion</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-10.5">IT Support</h4>
+                        <p class="text-gray-700">Office internet &amp; ISP coordination, printer setup, end-user software support</p>
                     </div>
                 </div>
             </section>
@@ -255,7 +273,6 @@
                     <div class="flex justify-between items-baseline">
                         <p class="text-[11.5px] text-gray-700 italic">Bachelor of Engineering Technology - Electrical
                             Engineering Technology (Computer)</p>
-                        <span class="text-emerald-700 font-bold text-sm">GPA: 2.55</span>
                     </div>
                 </div>
             </section>
