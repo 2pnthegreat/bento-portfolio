@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { experience } from '../data/profile';
 
 // Moving between pages the way a visitor would: by clicking, not by typing URLs.
 test.describe('Navigation', () => {
@@ -8,8 +9,8 @@ test.describe('Navigation', () => {
 
         await expect(page).toHaveURL('/about');
         await expect(page.getByRole('heading', { name: 'Experience' })).toBeVisible();
-        // Three jobs: Siam Innovator, Joget Developer, internship
-        await expect(page.getByTestId('experience-timeline').locator(':scope > li')).toHaveCount(3);
+        // One entry per job in data/profile.ts, so adding a job there doesn't need a test change
+        await expect(page.getByTestId('experience-timeline').locator(':scope > li')).toHaveCount(experience.length);
     });
 
     test('a project card opens its case study', async ({ page }) => {
