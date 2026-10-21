@@ -1,28 +1,8 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { site } from '@/data/site';
+import FlipClock from './FlipClock';
 
 export default function LocationCard() {
-    const [time, setTime] = useState('');
-
-    useEffect(() => {
-        const updateTime = () => {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('th-TH', {
-                timeZone: 'Asia/Bangkok',
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: false
-            });
-            setTime(`${timeString} น.`);
-        };
-
-        updateTime();
-        const timer = setInterval(updateTime, 1000);
-        return () => clearInterval(timer);
-    }, []);
-
     return (
         <a
             href="https://www.google.com/maps/place/Thailand"
@@ -51,12 +31,10 @@ export default function LocationCard() {
                     </svg>
                 </div>
 
-                <h2 className="text-text-main font-semibold text-sm mb-1">
+                <FlipClock className="text-3xl font-semibold text-text-main leading-none mb-2" />
+                <h2 className="text-text-sub text-xs font-medium">
                     {site.location}
                 </h2>
-                <p className="text-text-sub text-xs font-variant-numeric tabular-nums">
-                    {time || '...'}
-                </p>
             </div>
         </a>
     );

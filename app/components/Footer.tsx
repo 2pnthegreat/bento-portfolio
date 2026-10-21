@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { site } from '@/data/site';
+import Logo from './Logo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +12,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div>
           <Link href="/" className="text-xl font-bold tracking-tight text-text-main">
-            {site.name.en.split(' ')[0]}<span className="text-accent">.</span>
+            <Logo />
           </Link>
           <p className="mt-2 text-sm text-text-sub max-w-xs">
             {site.tagline}

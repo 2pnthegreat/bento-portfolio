@@ -98,6 +98,13 @@ html.theme-transition body {
   transition: none;
 }
 
+/* FlipClock colon */
+@keyframes colon-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
 /* Project card cover → project page hero (see ProjectCard). Keep the image cropped,
    not stretched, while its box changes shape. */
 ::view-transition-group(project-cover) {

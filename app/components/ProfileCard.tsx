@@ -6,6 +6,7 @@ import { site } from '@/data/site';
 import { profile } from '@/data/profile';
 import ScrambleText from './ScrambleText';
 import RotatingText from './RotatingText';
+import Magnetic from './Magnetic';
 
 const socialLinks = [
     { label: 'GitHub', href: site.socials.github, icon: FaGithub, external: true },
@@ -38,21 +39,24 @@ export default function ProfileCard() {
                 ))}
             </div>
             <div className="mt-auto flex flex-wrap items-center gap-3">
-                <Link href="/about" className="inline-block bg-accent text-on-accent px-6 py-2.5 rounded-full text-sm font-semibold hover:brightness-95 transition-all active:scale-95">
-                    ดูข้อมูลเพิ่มเติม
-                </Link>
+                <Magnetic>
+                    <Link href="/about" className="inline-block bg-accent text-on-accent px-6 py-2.5 rounded-full text-sm font-semibold hover:brightness-95 transition-all active:scale-95">
+                        ดูข้อมูลเพิ่มเติม
+                    </Link>
+                </Magnetic>
                 <div className="flex gap-2">
                     {socialLinks.map(({ label, href, icon: Icon, external }) => (
-                        <a
-                            key={label}
-                            href={href}
-                            aria-label={label}
-                            target={external ? '_blank' : undefined}
-                            rel={external ? 'noopener noreferrer' : undefined}
-                            className="w-10 h-10 rounded-full border border-border-color flex items-center justify-center text-text-sub hover:text-accent-ink hover:border-accent transition-colors"
-                        >
-                            <Icon size={16} />
-                        </a>
+                        <Magnetic key={label} strength={0.25} range={16}>
+                            <a
+                                href={href}
+                                aria-label={label}
+                                target={external ? '_blank' : undefined}
+                                rel={external ? 'noopener noreferrer' : undefined}
+                                className="w-10 h-10 rounded-full border border-border-color flex items-center justify-center text-text-sub hover:text-accent-ink hover:border-accent transition-colors"
+                            >
+                                <Icon size={16} />
+                            </a>
+                        </Magnetic>
                     ))}
                 </div>
             </div>

@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { RiArrowDropDownLine, RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import { projects } from '@/data/projects';
-import { site } from '@/data/site';
+import Logo from './Logo';
+import Magnetic from './Magnetic';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
@@ -26,7 +27,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-5'} bg-nav-bg border-b border-border-color shadow-sm`}>
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold tracking-tight text-text-main hover:opacity-80 transition-opacity z-50">
-          {site.name.en.split(' ')[0]}<span className="text-accent">.</span>
+          <Logo animated />
         </Link>
         
         {/* Desktop Navigation */}
@@ -71,12 +72,14 @@ const Navbar = () => {
 
             <ThemeToggle />
 
-            <Link 
-                href="/#contact" 
-                className="px-5 py-2 bg-accent text-on-accent text-sm font-semibold rounded-full hover:brightness-95 transition-all active:scale-95"
-            >
-                Contact Me
-            </Link>
+            <Magnetic>
+                <Link 
+                    href="/#contact" 
+                    className="inline-block px-5 py-2 bg-accent text-on-accent text-sm font-semibold rounded-full hover:brightness-95 transition-all active:scale-95"
+                >
+                    Contact Me
+                </Link>
+            </Magnetic>
         </div>
 
         {/* Mobile menu toggle & Theme button (Mobile) */}
