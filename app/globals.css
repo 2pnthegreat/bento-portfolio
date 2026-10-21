@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Drive `dark:` utilities from the theme toggle, not the OS setting */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 :root {
   --bg-color: #f8fafc;
   --card-bg: #ffffff;
@@ -48,6 +51,17 @@ body {
 .glass {
   background: var(--nav-bg);
   border-bottom: 1px solid var(--border-color);
+}
+
+/* Hidden until BentoGrid animates them in; :where keeps specificity at 0 */
+:where(.bento-reveal) > * {
+  opacity: 0;
+}
+
+@media (scripting: none) {
+  :where(.bento-reveal) > * {
+    opacity: 1;
+  }
 }
 
 .nav-link {
