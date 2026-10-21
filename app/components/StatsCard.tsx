@@ -1,5 +1,6 @@
 import React from 'react';
 import { stats } from '@/data/profile';
+import CountUp from './CountUp';
 
 interface StatsCardProps {
     className?: string;
@@ -16,7 +17,7 @@ export default function StatsCard({ className = "" }: StatsCardProps) {
                     <div key={stat.label} className="flex flex-col-reverse gap-1">
                         <dt className="text-xs text-text-sub leading-snug">{stat.label}</dt>
                         <dd className="text-3xl md:text-4xl font-semibold text-text-main tabular-nums">
-                            {stat.value}<span className="text-accent-ink">{stat.suffix}</span>
+                            <CountUp value={stat.value} /><span className="text-accent-ink">{stat.suffix}</span>
                         </dd>
                     </div>
                 ))}

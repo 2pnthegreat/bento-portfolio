@@ -4,6 +4,8 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { RiMailLine } from 'react-icons/ri';
 import { site } from '@/data/site';
 import { profile } from '@/data/profile';
+import ScrambleText from './ScrambleText';
+import RotatingText from './RotatingText';
 
 const socialLinks = [
     { label: 'GitHub', href: site.socials.github, icon: FaGithub, external: true },
@@ -21,8 +23,13 @@ export default function ProfileCard() {
                     <div className="relative w-full h-full rounded-full bg-accent-soft bg-cover bg-center border-2 border-card-bg" style={{ backgroundImage: "url('/portrait.png')" }}></div>
                 </div>
                 <div>
-                    <h1 className="text-2xl font-semibold text-text-main leading-tight">{site.name.th}</h1>
-                    <p className="text-sm font-medium text-accent-ink">{site.currentPosition}</p>
+                    <h1 className="text-2xl font-semibold text-text-main leading-tight">
+                        <ScrambleText text={site.name.th} />
+                    </h1>
+                    <p className="text-sm font-semibold text-accent-ink">
+                        <RotatingText items={site.roles} />
+                    </p>
+                    <p className="text-xs text-text-sub">{site.currentPosition}</p>
                 </div>
             </div>
             <div className="text-text-sub text-sm leading-relaxed mb-5 space-y-1">

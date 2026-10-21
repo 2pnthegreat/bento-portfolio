@@ -1,7 +1,16 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion, useReducedMotion, useSpring } from "motion/react";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import type { Project } from "@/data/projects";
+
+const MotionLink = motion.create(Link);
+
+/** Max tilt in degrees at the card's edge */
+const MAX_TILT = 6;
+const tiltSpring = { stiffness: 220, damping: 22, mass: 0.6 };
 
 interface ProjectCardProps {
     project: Project;
@@ -15,13 +24,34 @@ export default function ProjectCard({
     htmlId,
 }: ProjectCardProps) {
     const { title, category, cover, href, external } = project;
+    const reduceMotion = useReducedMotion();
+    const rotateX = useSpring(0, tiltSpring);
+    const rotateY = useSpring(0, tiltSpring);
+
+    // Mouse only: touch scrolling shouldn't tilt cards
+    const handlePointerMove = (e: React.PointerEvent<HTMLAnchorElement>) => {
+        if (reduceMotion || e.pointerType !== "mouse") return;
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        rotateY.set(x * MAX_TILT * 2);
+        rotateX.set(-y * MAX_TILT * 2);
+    };
+
+    const resetTilt = () => {
+        rotateX.set(0);
+        rotateY.set(0);
+    };
 
     return (
-        <Link
+        <MotionLink
             href={href}
             id={htmlId}
             target={external ? "_blank" : undefined}
             rel={external ? "noopener noreferrer" : undefined}
+            onPointerMove={handlePointerMove}
+            onPointerLeave={resetTilt}
+            style={{ rotateX, rotateY, transformPerspective: 900 }}
             className={`bento-card bg-card-bg overflow-hidden relative group min-h-[220px] ${className}`}
         >
             <div className="absolute inset-0">
@@ -44,6 +74,6 @@ export default function ProjectCard({
                     <RiArrowRightUpLine />
                 </span>
             </div>
-        </Link>
+        </MotionLink>
     );
 }

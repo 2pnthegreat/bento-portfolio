@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { stagger, useAnimate } from 'motion/react';
+import { stagger, useAnimate, useReducedMotion } from 'motion/react';
 
 interface BentoGridProps {
     children: React.ReactNode;
@@ -9,20 +9,25 @@ interface BentoGridProps {
 
 export default function BentoGrid({ children }: BentoGridProps) {
     const [scope, animate] = useAnimate<HTMLDivElement>();
+    const reduceMotion = useReducedMotion();
 
     // Cards start hidden via the .bento-reveal CSS rule, then fade/rise in one after another.
-    // Reduced-motion users get the fade without the movement (handled by MotionConfig).
+    // The rise uses the CSS `translate` property, not `transform`, so it never fights with a
+    // card's own transform (e.g. ProjectCard's mouse tilt). Reduced motion: fade only.
     useEffect(() => {
-        animate(
+        const controls = animate(
             Array.from(scope.current.children),
-            {
-                opacity: [0, 1],
-                transform: ['translateY(24px)', 'translateY(0px)'],
-                filter: ['blur(6px)', 'blur(0px)'],
-            },
+            reduceMotion
+                ? { opacity: [0, 1] }
+                : {
+                      opacity: [0, 1],
+                      translate: ['0px 24px', '0px 0px'],
+                      filter: ['blur(6px)', 'blur(0px)'],
+                  },
             { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: stagger(0.06) }
         );
-    }, [animate, scope]);
+        return () => controls.complete();
+    }, [animate, scope, reduceMotion]);
 
     return (
         <div
