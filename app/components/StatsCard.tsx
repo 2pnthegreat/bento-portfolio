@@ -8,7 +8,7 @@ interface StatsCardProps {
 
 export default function StatsCard({ className = "" }: StatsCardProps) {
     return (
-        <div data-testid="stats" className={`bento-card bg-card-bg p-6 md:p-8 flex flex-col justify-between h-full min-h-[180px] ${className}`}>
+        <div className={`bento-card bg-card-bg p-6 md:p-8 flex flex-col justify-between h-full min-h-[180px] ${className}`}>
             <h2 className="text-sm font-semibold uppercase tracking-widest text-text-sub mb-4">
                 At a <span className="text-accent-ink">glance</span>
             </h2>
