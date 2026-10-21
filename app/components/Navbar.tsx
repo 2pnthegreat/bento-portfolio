@@ -3,36 +3,24 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { RiArrowDropDownLine, RiSunLine, RiMoonLine, RiMenuLine, RiCloseLine } from 'react-icons/ri';
+import { RiArrowDropDownLine, RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import { projects } from '@/data/projects';
 import { site } from '@/data/site';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [theme, setTheme] = useState('light');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    
-    // Theme initialization
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-5'} bg-nav-bg border-b border-border-color shadow-sm`}>
@@ -81,13 +69,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <button 
-                onClick={toggleTheme}
-                className="p-2 rounded-full hover:bg-bg-color text-text-sub hover:text-text-main transition-colors"
-                aria-label="Toggle Theme"
-            >
-                {theme === 'light' ? <RiMoonLine size={20} /> : <RiSunLine size={20} />}
-            </button>
+            <ThemeToggle />
 
             <Link 
                 href="/#contact" 
@@ -99,13 +81,7 @@ const Navbar = () => {
 
         {/* Mobile menu toggle & Theme button (Mobile) */}
         <div className="flex items-center gap-4 md:hidden">
-            <button 
-                onClick={toggleTheme}
-                className="p-2 rounded-full hover:bg-bg-color text-text-sub hover:text-text-main transition-colors"
-                aria-label="Toggle Theme"
-            >
-                {theme === 'light' ? <RiMoonLine size={20} /> : <RiSunLine size={20} />}
-            </button>
+            <ThemeToggle />
             <button 
                 className="text-text-main p-1 z-50 focus:outline-none"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}

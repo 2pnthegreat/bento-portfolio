@@ -2,15 +2,31 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { motion, useReducedMotion, useSpring } from "motion/react";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import type { Project } from "@/data/projects";
+import { PROJECT_COVER_TRANSITION_NAME, VIEW_TRANSITION_NAV_ATTR } from "@/lib/view-transition";
 
 const MotionLink = motion.create(Link);
 
 /** Max tilt in degrees at the card's edge */
 const MAX_TILT = 6;
 const tiltSpring = { stiffness: 220, damping: 22, mass: 0.6 };
+/** Give up waiting for the project page after this long so the screen never stays frozen */
+const MAX_TRANSITION_WAIT_MS = 2000;
+
+/** Resolves once the project page's hero is in the DOM (or after the time limit) */
+const waitForProjectHero = (href: string) =>
+    new Promise<void>((resolve) => {
+        const start = performance.now();
+        const check = () => {
+            const ready = location.pathname === href && document.querySelector("[data-project-hero]");
+            if (ready || performance.now() - start > MAX_TRANSITION_WAIT_MS) resolve();
+            else setTimeout(check, 16);
+        };
+        check();
+    });
 
 interface ProjectCardProps {
     project: Project;
@@ -24,6 +40,7 @@ export default function ProjectCard({
     htmlId,
 }: ProjectCardProps) {
     const { title, category, cover, href, external } = project;
+    const router = useRouter();
     const reduceMotion = useReducedMotion();
     const rotateX = useSpring(0, tiltSpring);
     const rotateY = useSpring(0, tiltSpring);
@@ -43,6 +60,29 @@ export default function ProjectCard({
         rotateY.set(0);
     };
 
+    // Internal case studies: morph this card's cover into the project page hero.
+    // Falls back to a normal Link navigation when the browser lacks view transitions.
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        const plainClick = e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
+        if (external || reduceMotion || !plainClick || !document.startViewTransition) return;
+
+        e.preventDefault();
+        const coverEl = e.currentTarget.querySelector<HTMLElement>("[data-card-cover]");
+        const root = document.documentElement;
+        resetTilt();
+        if (coverEl) coverEl.style.viewTransitionName = PROJECT_COVER_TRANSITION_NAME;
+        root.setAttribute(VIEW_TRANSITION_NAV_ATTR, "");
+
+        const transition = document.startViewTransition(() => {
+            router.push(href);
+            return waitForProjectHero(href);
+        });
+        transition.finished.finally(() => {
+            root.removeAttribute(VIEW_TRANSITION_NAV_ATTR);
+            if (coverEl) coverEl.style.viewTransitionName = "";
+        });
+    };
+
     return (
         <MotionLink
             href={href}
@@ -51,10 +91,11 @@ export default function ProjectCard({
             rel={external ? "noopener noreferrer" : undefined}
             onPointerMove={handlePointerMove}
             onPointerLeave={resetTilt}
+            onClick={handleClick}
             style={{ rotateX, rotateY, transformPerspective: 900 }}
             className={`bento-card bg-card-bg overflow-hidden relative group min-h-[220px] ${className}`}
         >
-            <div className="absolute inset-0">
+            <div data-card-cover className="absolute inset-0 rounded-[var(--radius)] overflow-hidden">
                 <Image
                     src={cover}
                     alt={title}

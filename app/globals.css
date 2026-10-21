@@ -70,15 +70,46 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hidden until BentoGrid animates them in; :where keeps specificity at 0 */
-:where(.bento-reveal) > * {
+/* Hidden until BentoGrid / ScrollReveal animate them in; :where keeps specificity at 0 */
+:where(.bento-reveal) > *,
+:where(.reveal-block),
+:where(.reveal-sequence) [data-reveal-item] {
   opacity: 0;
 }
 
-@media (scripting: none) {
-  :where(.bento-reveal) > * {
+/* No JS, or printing (sections not scrolled to yet would print blank) */
+@media (scripting: none), print {
+  :where(.bento-reveal) > *,
+  :where(.reveal-block),
+  :where(.reveal-sequence) [data-reveal-item] {
     opacity: 1;
   }
+}
+
+/* Theme switch: the new theme is revealed as a growing circle (see ThemeToggle).
+   Turn off the default crossfade and colour transitions so the circle edge stays crisp. */
+html.theme-transition::view-transition-old(root),
+html.theme-transition::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html.theme-transition body {
+  transition: none;
+}
+
+/* Project card cover → project page hero (see ProjectCard). Keep the image cropped,
+   not stretched, while its box changes shape. */
+::view-transition-group(project-cover) {
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(project-cover),
+::view-transition-new(project-cover) {
+  height: 100%;
+  object-fit: cover;
+  overflow: clip;
 }
 
 .nav-link {

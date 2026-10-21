@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { site } from '@/data/site';
 import { profile, education, experience } from '@/data/profile';
+import ExperienceTimeline from '../components/ExperienceTimeline';
 
 export const metadata: Metadata = {
     title: "About",
@@ -29,21 +30,7 @@ export default function AboutPage() {
                         ))}
 
                         <h2 className="text-xl font-semibold mt-10 mb-6">Experience</h2>
-                        <ol className="relative border-l border-border-color ml-1.5 space-y-10">
-                            {experience.map((job) => (
-                                <li key={`${job.company}-${job.period}`} className="pl-6 relative">
-                                    <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-accent ring-4 ring-card-bg" />
-                                    <p className="text-xs font-medium uppercase tracking-wider text-text-sub mb-1">{job.period}</p>
-                                    <h3 className="text-lg font-semibold text-text-main leading-snug">{job.title}</h3>
-                                    <p className="text-sm text-text-sub mb-3">{job.company}</p>
-                                    <ul className="list-disc list-outside ml-4 text-text-sub space-y-1.5 leading-relaxed">
-                                        {job.highlights.map((item) => (
-                                            <li key={item}>{item}</li>
-                                        ))}
-                                    </ul>
-                                </li>
-                            ))}
-                        </ol>
+                        <ExperienceTimeline items={experience} />
 
                         <h2 className="text-xl font-semibold mt-12 mb-4">Education</h2>
                         <div className="bg-bg-color rounded-2xl p-6">
