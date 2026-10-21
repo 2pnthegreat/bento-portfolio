@@ -1,12 +1,20 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import { Metadata } from 'next';
+import { RiBillLine, RiArrowLeftRightLine, RiClipboardLine, RiDeleteBinLine } from 'react-icons/ri';
+import ScopeFlow, { type ScopeStep } from '../../components/ScopeFlow';
 
 export const metadata: Metadata = {
     title: "Fixed Asset",
     description: "GISTDA – Fixed Asset Management (Joget Platform)",
 }
+
+const scopeSteps: ScopeStep[] = [
+    { icon: RiBillLine, label: 'ลงทะเบียน' },
+    { icon: RiArrowLeftRightLine, label: 'โอนย้าย/ยืมคืน' },
+    { icon: RiClipboardLine, label: 'ตรวจนับ' },
+    { icon: RiDeleteBinLine, label: 'ตัดจำหน่าย' },
+];
 
 export default function FixAssetPage() {
     return (
@@ -62,29 +70,7 @@ export default function FixAssetPage() {
                     {/* Scope */}
                     <div className="space-y-6">
                         <h2 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">ขอบเขตงาน (Scope)</h2>
-                        <div className="bg-bg-color p-8 rounded-2xl overflow-x-auto">
-                            <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center min-w-[600px]">
-                                <div className="flex flex-col items-center gap-3">
-                                    <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-3xl">🧾</span>
-                                    <span className="font-medium text-text-main">ลงทะเบียน</span>
-                                </div>
-                                <div className="text-text-sub/50 rotate-90 md:rotate-0 text-2xl">➜</div>
-                                <div className="flex flex-col items-center gap-3">
-                                    <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-3xl">🔁</span>
-                                    <span className="font-medium text-text-main">โอนย้าย/ยืมคืน</span>
-                                </div>
-                                <div className="text-text-sub/50 rotate-90 md:rotate-0 text-2xl">➜</div>
-                                <div className="flex flex-col items-center gap-3">
-                                    <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-3xl">📋</span>
-                                    <span className="font-medium text-text-main">ตรวจนับ</span>
-                                </div>
-                                <div className="text-text-sub/50 rotate-90 md:rotate-0 text-2xl">➜</div>
-                                <div className="flex flex-col items-center gap-3">
-                                    <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-3xl">🗑️</span>
-                                    <span className="font-medium text-text-main">ตัดจำหน่าย</span>
-                                </div>
-                            </div>
-                        </div>
+                        <ScopeFlow steps={scopeSteps} accentClass="text-emerald-600 dark:text-emerald-400" />
                     </div>
 
                     {/* Main Content Sections */}

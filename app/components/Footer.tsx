@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { site } from '@/data/site';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +14,7 @@ const Footer = () => {
             PORT<span className="text-accent">FOLIO</span>
           </Link>
           <p className="mt-2 text-sm text-text-sub max-w-xs">
-            Fullstack Developer & Low-code specialized in building scalable enterprise systems and automated workflows.
+            {site.tagline}
           </p>
         </div>
 
@@ -27,10 +28,10 @@ const Footer = () => {
           <div className="flex flex-col gap-2">
             <h4 className="text-sm font-semibold text-text-main uppercase tracking-wider">Social</h4>
             <div className="flex gap-4 mt-1">
-              <a href="https://github.com/2pnthegreat" target="_blank" rel="noopener noreferrer" className="text-text-sub hover:text-text-main transition-colors">
+              <a href={site.socials.github} target="_blank" rel="noopener noreferrer" className="text-text-sub hover:text-text-main transition-colors">
                 <FaGithub size={20} />
               </a>
-              <a href="https://www.linkedin.com/in/kampanart-poonpanao-656772368" target="_blank" rel="noopener noreferrer" className="text-text-sub hover:text-text-main transition-colors">
+              <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-text-sub hover:text-text-main transition-colors">
                 <FaLinkedin size={20} />
               </a>
             </div>
@@ -39,7 +40,7 @@ const Footer = () => {
       </div>
 
       <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-border-color flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-sub">
-        <p>© {currentYear} Kampanart Poonpanao. All rights reserved.</p>
+        <p>© {currentYear} {site.name.en}. All rights reserved.</p>
       </div>
     </footer>
   );

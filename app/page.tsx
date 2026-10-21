@@ -4,9 +4,11 @@ import LocationCard from "./components/LocationCard";
 import SocialCard from "./components/SocialCard";
 import ProjectCard from "./components/ProjectCard";
 import ToolsCard from "./components/ToolsCard";
-import QuoteCard from "./components/QuoteCard";
+import StatsCard from "./components/StatsCard";
 import ContactCard from "./components/ContactCard";
 import DocumentCard from "./components/DocumentCard";
+import { site } from "@/data/site";
+import { getProject } from "@/data/projects";
 
 
 export default function Home() {
@@ -19,36 +21,31 @@ export default function Home() {
         <ToolsCard />
 
         {/* Row 2: LinkedIn (1), GitHub (1), Project 1 (2) */}
-        <SocialCard platform="linkedin" href="https://www.linkedin.com/in/kampanart-poonpanao-656772368" />
-        <SocialCard platform="github" href="https://github.com/2pnthegreat" />
+        <SocialCard platform="linkedin" href={site.socials.linkedin} />
+        <SocialCard platform="github" href={site.socials.github} />
         <ProjectCard
-          id="1"
+          project={getProject("e-procurement")}
           htmlId="work"
-          title="E-Procurement"
-          category="Web Application"
-          image="/e-procurement-cover.jpeg"
           className="col-span-1 md:col-span-2"
         />
 
-        {/* Row 3: Resume (1), CV (1), Project 2 (2) */}
-        <DocumentCard title="Resume" href="/Resume.pdf" color="bg-gray-700" />
-        <DocumentCard title="CV" href="/CV_PDF.pdf" color="bg-gray-600" targetBlank={false} />
+        {/* Row 3: Resume (2), Project 2 (2) */}
+        <DocumentCard
+          title="Resume"
+          description="ดาวน์โหลดประวัติการทำงาน (PDF)"
+          href={site.resumeUrl}
+          color="bg-gray-700"
+          className="col-span-1 md:col-span-2"
+        />
         <ProjectCard
-          id="2"
-          title="Fixed Asset"
-          category="Management System"
-          image="/fix-asset-cover.jpg"
+          project={getProject("fix-asset")}
           className="col-span-1 md:col-span-2"
         />
 
-        {/* Row 4: Quote (2), Sukreep POS (2) */}
-        <QuoteCard className="col-span-1 md:col-span-2" />
+        {/* Row 4: Stats (2), Sukreep POS (2) */}
+        <StatsCard className="col-span-1 md:col-span-2" />
         <ProjectCard
-          id="sukreep"
-          title="Sukreep POS"
-          category="SaaS ERP & POS"
-          image="/sukreep-cover.png"
-          href="https://sukreep.com"
+          project={getProject("sukreep")}
           className="col-span-1 md:col-span-2"
         />
 

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { RiArrowDropDownLine, RiSunLine, RiMoonLine, RiMenuLine, RiCloseLine } from 'react-icons/ri';
+import { projects } from '@/data/projects';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -31,12 +32,6 @@ const Navbar = () => {
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
   };
-
-  const projects = [
-    { name: 'Sukreep POS (SaaS)', path: 'https://sukreep.com' },
-    { name: 'E-Procurement', path: '/projects/e-procurement' },
-    { name: 'Fixed Asset Management', path: '/projects/fix-asset' },
-  ];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-5'} bg-nav-bg border-b border-border-color shadow-sm`}>
@@ -72,11 +67,13 @@ const Navbar = () => {
                     <div className="bg-card-bg border border-border-color rounded-2xl shadow-xl overflow-hidden py-2">
                         {projects.map((project) => (
                             <Link 
-                                key={project.path}
-                                href={project.path}
+                                key={project.slug}
+                                href={project.href}
+                                target={project.external ? '_blank' : undefined}
+                                rel={project.external ? 'noopener noreferrer' : undefined}
                                 className="block px-5 py-3 text-sm text-text-sub hover:text-text-main hover:bg-bg-color transition-colors"
                             >
-                                {project.name}
+                                {project.menuLabel}
                             </Link>
                         ))}
                     </div>
@@ -139,12 +136,14 @@ const Navbar = () => {
             <span className="text-text-sub text-sm tracking-widest uppercase">My Work</span>
             {projects.map((project) => (
               <Link 
-                key={project.path} 
-                href={project.path}
+                key={project.slug} 
+                href={project.href}
+                target={project.external ? '_blank' : undefined}
+                rel={project.external ? 'noopener noreferrer' : undefined}
                 className="text-lg text-text-main hover:text-accent transition-colors pl-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {project.name}
+                {project.menuLabel}
               </Link>
             ))}
           </div>

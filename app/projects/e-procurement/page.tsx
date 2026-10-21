@@ -1,12 +1,21 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import { Metadata } from 'next';
+import { RiFileEditLine, RiCheckboxCircleLine, RiScales3Line, RiFileList3Line, RiBarChartBoxLine } from 'react-icons/ri';
+import ScopeFlow, { type ScopeStep } from '../../components/ScopeFlow';
 
 export const metadata: Metadata = {
     title: "E-Procurement",
     description: "GISTDA – E-Procurement (Joget Platform)",
 }
+
+const scopeSteps: ScopeStep[] = [
+    { icon: RiFileEditLine, label: 'คำขอซื้อ' },
+    { icon: RiCheckboxCircleLine, label: 'อนุมัติหลายระดับ' },
+    { icon: RiScales3Line, label: 'เปรียบเทียบราคา' },
+    { icon: RiFileList3Line, label: 'ออกใบสั่งซื้อ' },
+    { icon: RiBarChartBoxLine, label: 'รายงาน/Dashboard' },
+];
 
 export default function EProcurementPage() {
     return (
@@ -67,34 +76,7 @@ export default function EProcurementPage() {
                     {/* Scope */}
                     <div className="space-y-6">
                         <h2 className="text-2xl font-bold text-accent">ขอบเขตงาน (Scope)</h2>
-                        <div className="bg-bg-color p-8 rounded-2xl overflow-x-auto">
-                            <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center min-w-[600px]">
-                                <div className="flex flex-col items-center gap-3">
-                                    <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-3xl">📝</span>
-                                    <span className="font-medium text-text-main">คำขอซื้อ</span>
-                                </div>
-                                <div className="text-text-sub/50 rotate-90 md:rotate-0 text-2xl">➜</div>
-                                <div className="flex flex-col items-center gap-3">
-                                    <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-3xl">✅</span>
-                                    <span className="font-medium text-text-main">อนุมัติหลายระดับ</span>
-                                </div>
-                                <div className="text-text-sub/50 rotate-90 md:rotate-0 text-2xl">➜</div>
-                                <div className="flex flex-col items-center gap-3">
-                                    <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-3xl">⚖️</span>
-                                    <span className="font-medium text-text-main">เปรียบเทียบราคา</span>
-                                </div>
-                                <div className="text-text-sub/50 rotate-90 md:rotate-0 text-2xl">➜</div>
-                                <div className="flex flex-col items-center gap-3">
-                                    <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-3xl">📃</span>
-                                    <span className="font-medium text-text-main">ออกใบสั่งซื้อ</span>
-                                </div>
-                                <div className="text-text-sub/50 rotate-90 md:rotate-0 text-2xl">➜</div>
-                                <div className="flex flex-col items-center gap-3">
-                                    <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-3xl">📊</span>
-                                    <span className="font-medium text-text-main">รายงาน/Dashboard</span>
-                                </div>
-                            </div>
-                        </div>
+                        <ScopeFlow steps={scopeSteps} />
                     </div>
 
                     {/* Main Content Sections */}

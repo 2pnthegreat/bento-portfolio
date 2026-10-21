@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Kanit } from "next/font/google";
 import { MotionConfig } from "motion/react";
+import { site } from "@/data/site";
 import "./globals.css";
 
 
@@ -18,14 +19,14 @@ const kanit = Kanit({
   display: "swap",
 });
 
-const siteTitle = "Kampanart Poonpanao — Full-stack Developer";
+const siteTitle = `${site.name.en} — ${site.role}`;
 const siteDescription =
   "Full-stack & low-code developer building enterprise systems: SaaS ERP/POS with Go-Fiber and Next.js, and Joget DX workflows for government agencies.";
 
 export const metadata: Metadata = {
   title: {
     default: siteTitle,
-    template: "%s | Kampanart Poonpanao",
+    template: `%s | ${site.name.en}`,
   },
   description: siteDescription,
   icons: {
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     title: siteTitle,
     description: siteDescription,
-    siteName: "Kampanart Poonpanao",
+    siteName: site.name.en,
   },
   twitter: {
     card: "summary_large_image",

@@ -1,40 +1,31 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa";
+import type { Project } from "@/data/projects";
 
 interface ProjectCardProps {
-    id: string;
-    title: string;
-    category: string;
-    image: string;
+    project: Project;
     className?: string;
     htmlId?: string;
-    href?: string;
 }
 
 export default function ProjectCard({
-    id,
-    title,
-    category,
-    image,
+    project,
     className = "",
     htmlId,
-    href,
 }: ProjectCardProps) {
-    const defaultHref = id === "1" ? "/projects/e-procurement" : id === "2" ? "/projects/fix-asset" : `/projects/${id}`;
-    const finalHref = href || defaultHref;
+    const { title, category, cover, href, external } = project;
 
     return (
         <Link
-            href={finalHref}
+            href={href}
             id={htmlId}
-            target={href ? "_blank" : undefined}
-            rel={href ? "noopener noreferrer" : undefined}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
             className={`bg-card-bg rounded-[var(--radius-card)] overflow-hidden relative group shadow-sm transition-all duration-300 hover:scale-[var(--hover-scale)] hover:shadow-md ${className}`}
         >
             <div className="absolute inset-0">
                 <Image
-                    src={image}
+                    src={cover}
                     alt={title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"

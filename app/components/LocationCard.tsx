@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { site } from '@/data/site';
 
 export default function LocationCard() {
     const [time, setTime] = useState('');
@@ -51,7 +52,7 @@ export default function LocationCard() {
                 </div>
 
                 <h2 className="text-text-main font-semibold text-sm mb-1">
-                    กรุงเทพฯ, ไทย
+                    {site.location}
                 </h2>
                 <p className="text-text-sub text-xs font-variant-numeric tabular-nums">
                     {time || '...'}
