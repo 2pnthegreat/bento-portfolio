@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kampanart Poonpanao — Portfolio
 
-## Getting Started
+[![E2E tests](https://github.com/2pnthegreat/bento-portfolio/actions/workflows/e2e.yml/badge.svg)](https://github.com/2pnthegreat/bento-portfolio/actions/workflows/e2e.yml)
 
-First, run the development server:
+Personal portfolio: projects, experience and contact, laid out as a bento grid.
+
+**Live:** https://2pnthegreat-portfolio.vercel.app
+
+## Stack
+
+- [Next.js](https://nextjs.org) (App Router) + TypeScript
+- Tailwind CSS v4
+- [Motion](https://motion.dev) for animations (all respect `prefers-reduced-motion`)
+- Deployed on Vercel
+- [Playwright](https://playwright.dev) end-to-end tests, run on GitHub Actions
+
+Site content (name, projects, experience, tools) lives in `data/`, so most text changes don't touch components.
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Testing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+End-to-end tests are in `e2e/` and cover what a visitor does:
 
-## Learn More
+| File | What it checks |
+| --- | --- |
+| `home.spec.ts` | Name, role, Resume link, the three projects, stats card numbers |
+| `navigation.spec.ts` | Navbar → About timeline; project card → case-study page |
+| `theme.spec.ts` | Dark mode toggle switches theme and remembers it after reload |
+| `mobile.spec.ts` | 375px screen: no sideways scroll, mobile menu opens |
 
-To learn more about Next.js, take a look at the following resources:
+Run them (Playwright builds and starts the site first):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx playwright install chromium   # first time only
+npm run test:e2e
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open the last HTML report with `npx playwright show-report`.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The same tests run on every push and pull request via `.github/workflows/e2e.yml`; the report is attached to each run as an artifact.

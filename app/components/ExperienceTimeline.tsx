@@ -15,7 +15,7 @@ export default function ExperienceTimeline({ items }: { items: Experience[] }) {
     const { scrollYProgress } = useScroll({ target: ref, offset: ['start 75%', 'end 60%'] });
 
     return (
-        <ol ref={ref} className="relative ml-1.5 space-y-10">
+        <ol ref={ref} data-testid="experience-timeline" className="relative ml-1.5 space-y-10">
             {/* Track + progress fill */}
             <span aria-hidden="true" className="absolute left-0 top-0 bottom-0 w-px bg-border-color" />
             <motion.span
