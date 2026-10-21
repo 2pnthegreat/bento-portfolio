@@ -1,41 +1,40 @@
 import React from 'react';
-import {
-    FaReact, FaNodeJs, FaGitAlt
-} from 'react-icons/fa';
-import {
-    SiNextdotjs,
-    SiMysql,
-    SiPostgresql,
-    SiDbeaver,
-    SiPrisma,
-    SiSupabase,
-    SiVercel,
-    SiGo,
-    SiPostman,
-} from 'react-icons/si';
+import Image from 'next/image';
+import { toolGroups } from '@/data/tools';
 
+interface ToolsCardProps {
+    className?: string;
+}
 
-export default function ToolsCard() {
+export default function ToolsCard({ className = "" }: ToolsCardProps) {
     return (
-        <div className="bg-card-bg rounded-[var(--radius-card)] p-6 flex flex-col shadow-sm transition-all duration-300 hover:scale-[var(--hover-scale)] hover:shadow-md col-span-1 md:col-span-1 h-full min-h-[180px]">
-            <h2 className="text-lg font-semibold mb-4 text-text-main">Tools</h2>
+        <div className={`bento-card bg-card-bg p-6 md:p-7 flex flex-col h-full min-h-[180px] ${className}`}>
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-text-sub mb-5">
+                Tech <span className="text-accent-ink">stack</span>
+            </h2>
 
-            <div className="grid grid-cols-4 gap-4 mb-auto justify-items-center text-center">
-                <FaReact className="text-3xl text-[#61DAFB]" title="React" />
-                <SiNextdotjs className="text-3xl text-text-main" title="Next.js" />
-                <FaNodeJs className="text-3xl text-[#339933]" title="Node.js" />
-                <SiGo className="text-3xl text-[#00ADD8]" title="Go" />
-                <FaGitAlt className="text-3xl text-[#F05032]" title="Git" />
-                <SiMysql className="text-3xl text-[#4479A1]" title="MySQL" />
-                <SiPostgresql className="text-3xl text-[#336791]" title="PostgreSQL" />
-                <SiDbeaver className="text-3xl text-[#382923] dark:text-[#94a3b8]" title="DBeaver" />
-                <SiPrisma className="text-3xl text-[#2D3748] dark:text-[#94a3b8]" title="Prisma" />
-                <SiSupabase className="text-3xl text-[#3ECF8E]" title="Supabase" />
-                <SiVercel className="text-3xl text-text-main" title="Vercel" />
-                <img src="/playwright.png" alt="Playwright" className="w-[30px] h-[30px]" title="Playwright" />
-                <SiPostman className="text-3xl text-[#FF6C37]" title="Postman" />
-            </div>
-            <p className="text-text-sub text-xs mt-4 text-center">My tech stack</p>
+            <dl className="space-y-3">
+                {toolGroups.map((group) => (
+                    <div key={group.label} className="flex flex-col sm:flex-row sm:items-center gap-2">
+                        <dt className="w-20 flex-shrink-0 text-xs font-medium text-text-sub">{group.label}</dt>
+                        <dd className="flex flex-wrap gap-2">
+                            {group.tools.map(({ name, icon: Icon }) => (
+                                <span
+                                    key={name}
+                                    className="inline-flex items-center gap-1.5 rounded-full border border-border-color bg-bg-color px-3 py-1 text-xs font-medium text-text-main"
+                                >
+                                    {typeof Icon === 'string' ? (
+                                        <Image src={Icon} alt="" width={14} height={14} className="grayscale" />
+                                    ) : (
+                                        <Icon className="text-sm text-text-sub" aria-hidden="true" />
+                                    )}
+                                    {name}
+                                </span>
+                            ))}
+                        </dd>
+                    </div>
+                ))}
+            </dl>
         </div>
     );
 }

@@ -9,12 +9,10 @@ export interface ScopeStep {
 
 interface ScopeFlowProps {
     steps: ScopeStep[];
-    /** Tailwind text color class for the step icons */
-    accentClass?: string;
 }
 
 // Horizontal process diagram on desktop, vertical on mobile
-export default function ScopeFlow({ steps, accentClass = "text-accent" }: ScopeFlowProps) {
+export default function ScopeFlow({ steps }: ScopeFlowProps) {
     return (
         <div className="bg-bg-color p-8 rounded-2xl overflow-x-auto">
             <ol className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:min-w-[600px]">
@@ -26,7 +24,7 @@ export default function ScopeFlow({ steps, accentClass = "text-accent" }: ScopeF
                             </li>
                         )}
                         <li className="flex flex-col items-center gap-3">
-                            <span className={`w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-2xl ${accentClass}`}>
+                            <span className="w-16 h-16 bg-card-bg shadow-sm rounded-full flex items-center justify-center text-2xl text-accent-ink">
                                 <step.icon />
                             </span>
                             <span className="font-medium text-text-main">{step.label}</span>

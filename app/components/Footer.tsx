@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div>
           <Link href="/" className="text-xl font-bold tracking-tight text-text-main">
-            PORT<span className="text-accent">FOLIO</span>
+            {site.name.en.split(' ')[0]}<span className="text-accent">.</span>
           </Link>
           <p className="mt-2 text-sm text-text-sub max-w-xs">
             {site.tagline}
@@ -21,8 +21,8 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:flex md:flex-row gap-10 w-full md:w-auto">
           <div className="flex flex-col gap-2">
             <h4 className="text-sm font-semibold text-text-main uppercase tracking-wider">Navigation</h4>
-            <Link href="/" className="text-sm text-text-sub hover:text-accent transition-colors">Home</Link>
-            <Link href="/about" className="text-sm text-text-sub hover:text-accent transition-colors">About</Link>
+            <Link href="/" className="text-sm text-text-sub hover:text-accent-ink transition-colors">Home</Link>
+            <Link href="/about" className="text-sm text-text-sub hover:text-accent-ink transition-colors">About</Link>
           </div>
 
           <div className="flex flex-col gap-2">

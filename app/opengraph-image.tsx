@@ -15,18 +15,18 @@ export default function OpengraphImage() {
                     flexDirection: "column",
                     justifyContent: "center",
                     padding: "80px",
-                    background: "#0f172a",
-                    color: "#f8fafc",
+                    background: "#121212",
+                    color: "#f5f5f5",
                 }}
             >
-                <div style={{ fontSize: 28, color: "#60a5fa", letterSpacing: 4, textTransform: "uppercase" }}>
+                <div style={{ fontSize: 28, color: "#ff8233", letterSpacing: 4, textTransform: "uppercase" }}>
                     Portfolio
                 </div>
                 <div style={{ fontSize: 76, fontWeight: 700, marginTop: 24 }}>Kampanart Poonpanao</div>
-                <div style={{ fontSize: 40, color: "#94a3b8", marginTop: 16 }}>
+                <div style={{ fontSize: 40, color: "#a3a3a3", marginTop: 16 }}>
                     Full-stack & Low-code Developer
                 </div>
-                <div style={{ fontSize: 28, color: "#64748b", marginTop: 48 }}>
+                <div style={{ fontSize: 28, color: "#737373", marginTop: 48 }}>
                     Go-Fiber · Next.js · PostgreSQL · Joget DX
                 </div>
             </div>

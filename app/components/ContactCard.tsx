@@ -1,5 +1,5 @@
 import React from 'react';
-import { RiMailLine } from 'react-icons/ri';
+import { RiArrowRightUpLine } from 'react-icons/ri';
 import { site } from '@/data/site';
 
 interface ContactCardProps {
@@ -12,12 +12,17 @@ export default function ContactCard({ className = "", htmlId }: ContactCardProps
         <a
             href={`mailto:${site.email}`}
             id={htmlId}
-            className={`bg-accent text-white rounded-[var(--radius-card)] p-6 flex flex-col items-center justify-center shadow-sm transition-all duration-300 hover:scale-[var(--hover-scale)] hover:shadow-md h-full min-h-[180px] ${className}`}
+            className={`bento-card bg-accent text-on-accent p-6 md:p-8 flex flex-col justify-between h-full min-h-[180px] group ${className}`}
         >
-            <RiMailLine className="text-4xl mb-3" />
-            <div className="text-center">
-                <h2 className="text-lg font-semibold mb-1">ติดต่อร่วมงาน</h2>
-                <p className="text-sm opacity-80 font-medium tracking-wide">{site.email}</p>
+            <div className="flex items-start justify-between">
+                <p className="text-sm font-semibold uppercase tracking-widest opacity-70">Contact</p>
+                <span className="w-10 h-10 rounded-full bg-on-accent text-accent flex items-center justify-center text-xl group-hover:rotate-45 transition-transform duration-300">
+                    <RiArrowRightUpLine />
+                </span>
+            </div>
+            <div>
+                <h2 className="text-2xl font-semibold mb-1">ติดต่อร่วมงาน</h2>
+                <p className="text-sm font-medium opacity-80 break-all">{site.email}</p>
             </div>
         </a>
     );

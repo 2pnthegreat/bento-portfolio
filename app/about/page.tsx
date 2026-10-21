@@ -11,14 +11,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
     return (
         <main className="min-h-screen flex flex-col items-center py-10 px-5">
-            <div className="max-w-[800px] w-full bg-card-bg rounded-[var(--radius-card)] p-8 shadow-sm">
+            <div className="max-w-[800px] w-full bg-card-bg rounded-[var(--radius-card)] border border-border-color p-8">
 
                 <div className="flex flex-col md:flex-row gap-8 items-start">
-                    <div className="w-32 h-32 rounded-full bg-gray-200 bg-cover bg-center flex-shrink-0" style={{ backgroundImage: "url('/about.jpg')" }}></div>
+                    <div className="relative w-32 h-32 flex-shrink-0">
+                        <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-full bg-accent" />
+                        <div className="relative w-full h-full rounded-full bg-accent-soft bg-cover bg-center border-4 border-card-bg" style={{ backgroundImage: "url('/about.jpg')" }}></div>
+                    </div>
 
                     <div className="w-full">
-                        <h1 className="text-3xl font-bold mb-1">About Me</h1>
-                        <p className="text-accent font-medium mb-6">{site.name.th} · {site.role}</p>
+                        <h1 className="text-3xl font-bold mb-1">About <span className="text-accent-ink">Me</span></h1>
+                        <p className="text-accent-ink font-medium mb-6">{site.name.th} · {site.role}</p>
                         {profile.about.map((paragraph) => (
                             <p key={paragraph} className="text-text-sub leading-relaxed mb-6">
                                 {paragraph}

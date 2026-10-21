@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { RiArrowDropDownLine, RiSunLine, RiMoonLine, RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import { projects } from '@/data/projects';
+import { site } from '@/data/site';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -37,7 +38,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-5'} bg-nav-bg border-b border-border-color shadow-sm`}>
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold tracking-tight text-text-main hover:opacity-80 transition-opacity z-50">
-          PORT<span className="text-accent">FOLIO</span>
+          {site.name.en.split(' ')[0]}<span className="text-accent">.</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -90,7 +91,7 @@ const Navbar = () => {
 
             <Link 
                 href="/#contact" 
-                className="px-5 py-2 bg-text-main text-bg-color text-sm font-medium rounded-full hover:bg-opacity-90 transition-all transform hover:scale-105 active:scale-95 shadow-sm"
+                className="px-5 py-2 bg-accent text-on-accent text-sm font-semibold rounded-full hover:brightness-95 transition-all active:scale-95"
             >
                 Contact Me
             </Link>
@@ -120,14 +121,14 @@ const Navbar = () => {
         <div className="flex flex-col gap-6 text-2xl font-semibold">
           <Link 
             href="/" 
-            className={`hover:text-accent transition-colors ${pathname === '/' ? 'text-accent' : 'text-text-main'}`}
+            className={`hover:text-accent-ink transition-colors ${pathname === '/' ? 'text-accent-ink' : 'text-text-main'}`}
             onClick={() => setIsMenuOpen(false)}
           >
             Home
           </Link>
           <Link 
             href="/about" 
-            className={`hover:text-accent transition-colors ${pathname === '/about' ? 'text-accent' : 'text-text-main'}`}
+            className={`hover:text-accent-ink transition-colors ${pathname === '/about' ? 'text-accent-ink' : 'text-text-main'}`}
             onClick={() => setIsMenuOpen(false)}
           >
             About
@@ -140,7 +141,7 @@ const Navbar = () => {
                 href={project.href}
                 target={project.external ? '_blank' : undefined}
                 rel={project.external ? 'noopener noreferrer' : undefined}
-                className="text-lg text-text-main hover:text-accent transition-colors pl-2"
+                className="text-lg text-text-main hover:text-accent-ink transition-colors pl-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {project.menuLabel}
@@ -149,7 +150,7 @@ const Navbar = () => {
           </div>
           <Link 
             href="/#contact" 
-            className="mt-4 px-8 py-4 bg-text-main text-bg-color text-center rounded-2xl hover:opacity-90 transition-all shadow-lg active:scale-95"
+            className="mt-4 px-8 py-4 bg-accent text-on-accent font-semibold text-center rounded-full hover:brightness-95 transition-all active:scale-95"
             onClick={() => setIsMenuOpen(false)}
           >
             Contact Me

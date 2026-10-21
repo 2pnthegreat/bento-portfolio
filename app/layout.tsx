@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Kanit } from "next/font/google";
+import { Poppins, Kanit } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import { site } from "@/data/site";
 import "./globals.css";
 
 
 
-const inter = Inter({
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-poppins",
   display: "swap",
 });
 
 const kanit = Kanit({
-  weight: ["300", "400", "600"],
+  weight: ["300", "400", "500", "600"],
   subsets: ["thai", "latin"],
   variable: "--font-kanit",
   display: "swap",
@@ -62,7 +63,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
-        className={`${inter.variable} ${kanit.variable} antialiased font-sans min-h-screen flex flex-col`}
+        className={`${poppins.variable} ${kanit.variable} antialiased font-sans min-h-screen flex flex-col`}
       >
         <MotionConfig reducedMotion="user">
           <Navbar />

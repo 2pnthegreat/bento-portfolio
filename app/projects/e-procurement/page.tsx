@@ -20,7 +20,7 @@ const scopeSteps: ScopeStep[] = [
 export default function EProcurementPage() {
     return (
         <main className="min-h-screen flex flex-col items-center py-10 px-5 bg-bg-color">
-            <div className="max-w-[1000px] w-full bg-card-bg rounded-[var(--radius-card)] p-8 shadow-sm">
+            <div className="max-w-[1000px] w-full bg-card-bg rounded-[var(--radius-card)] border border-border-color p-8">
 
                 <div className="mb-12">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">E-Procurement</h1>
@@ -50,7 +50,7 @@ export default function EProcurementPage() {
                     {/* Problem & Solution */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="space-y-4">
-                            <h2 className="text-2xl font-bold flex items-center gap-2 text-accent">Problem</h2>
+                            <h2 className="text-2xl font-bold flex items-center gap-2 text-accent-ink">Problem</h2>
                             <div className="bg-bg-color p-6 rounded-2xl text-text-sub h-full">
                                 <ul className="list-disc list-inside space-y-2">
                                     <li>ใช้เอกสาร/Excel และอีเมลในการขอซื้อ</li>
@@ -62,7 +62,7 @@ export default function EProcurementPage() {
                         </div>
 
                         <div className="space-y-4">
-                            <h2 className="text-2xl font-bold flex items-center gap-2 text-accent">Solution</h2>
+                            <h2 className="text-2xl font-bold flex items-center gap-2 text-accent-ink">Solution</h2>
                             <div className="bg-bg-color p-6 rounded-2xl text-text-sub h-full">
                                 <ul className="list-disc list-inside space-y-2">
                                     <li>รวมทุกขั้นตอนจัดซื้อวงเงินไม่เกิน 500,000 บาทไว้ในระบบเดียว</li>
@@ -75,7 +75,7 @@ export default function EProcurementPage() {
 
                     {/* Scope */}
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-bold text-accent">ขอบเขตงาน (Scope)</h2>
+                        <h2 className="text-2xl font-bold text-accent-ink">ขอบเขตงาน (Scope)</h2>
                         <ScopeFlow steps={scopeSteps} />
                     </div>
 
@@ -83,7 +83,7 @@ export default function EProcurementPage() {
                     <div className="space-y-12">
                         {/* Contribution */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-4 text-accent">สิ่งที่ผมทำ (My Contribution)</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-accent-ink">สิ่งที่ผมทำ (My Contribution)</h2>
                             <div className="bg-bg-color p-8 rounded-2xl text-text-sub">
                                 <ul className="list-disc list-inside space-y-3 leading-relaxed">
                                     <li>ออกแบบ Workflow การทำงานของระบบ</li>
@@ -99,7 +99,7 @@ export default function EProcurementPage() {
 
                         {/* System Overview */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-4 text-accent">ภาพรวมของระบบ (System Overview)</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-accent-ink">ภาพรวมของระบบ (System Overview)</h2>
                             <div className="bg-bg-color p-6 rounded-2xl">
                                 <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 shadow-sm border border-border-color">
                                     <Image
@@ -118,7 +118,7 @@ export default function EProcurementPage() {
 
                         {/* My Role & Responsibilities (Detailed) */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-6 text-accent">My Role & Responsibilities</h2>
+                            <h2 className="text-2xl font-bold mb-6 text-accent-ink">My Role & Responsibilities</h2>
                             <div className="bg-bg-color p-8 rounded-2xl text-text-sub space-y-10">
 
                                 {/* 1. Workflow */}
@@ -238,7 +238,7 @@ export default function EProcurementPage() {
 
                         {/* Technical Details */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-4 text-accent">Technical Details</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-accent-ink">Technical Details</h2>
                             <div className="bg-bg-color p-8 rounded-2xl text-text-sub grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <p className="font-semibold text-text-main mb-1">Platform</p>
@@ -265,7 +265,7 @@ export default function EProcurementPage() {
 
                         {/* Impact & Learnings */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-4 text-accent">Impact & Learnings</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-accent-ink">Impact & Learnings</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="bg-bg-color p-6 rounded-2xl">
                                     <h3 className="font-bold text-lg mb-3 text-text-main">Impact</h3>

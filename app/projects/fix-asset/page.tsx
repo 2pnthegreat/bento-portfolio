@@ -19,12 +19,12 @@ const scopeSteps: ScopeStep[] = [
 export default function FixAssetPage() {
     return (
         <main className="min-h-screen flex flex-col items-center py-10 px-5 bg-bg-color">
-            <div className="max-w-[1000px] w-full bg-card-bg rounded-[var(--radius-card)] p-8 shadow-sm">
+            <div className="max-w-[1000px] w-full bg-card-bg rounded-[var(--radius-card)] border border-border-color p-8">
 
                 {/* Header */}
                 <div className="mb-12">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Fixed Asset</h1>
-                    <p className="text-xl text-emerald-600 dark:text-emerald-400 font-medium">GISTDA – Fixed Asset Management</p>
+                    <p className="text-xl text-accent-ink font-medium">GISTDA – Fixed Asset Management</p>
                     <p className="text-text-sub mt-4 text-lg leading-relaxed">
                         ระบบจัดการทรัพย์สินถาวรบนแพลตฟอร์ม Joget สำหรับ GISTDA ครอบคลุมการลงทะเบียนครุภัณฑ์ ติดตามสถานะ โอนย้าย ตรวจนับประจำปี และตัดจำหน่ายในระบบเดียว
                     </p>
@@ -46,7 +46,7 @@ export default function FixAssetPage() {
                     {/* Problem & Solution */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="space-y-4">
-                            <h2 className="text-2xl font-bold flex items-center gap-2 text-emerald-600 dark:text-emerald-400">Problem</h2>
+                            <h2 className="text-2xl font-bold flex items-center gap-2 text-accent-ink">Problem</h2>
                             <div className="bg-bg-color p-6 rounded-2xl text-text-sub h-full">
                                 <ul className="list-disc list-inside space-y-2">
                                     <li>ข้อมูลครุภัณฑ์กระจายหลายไฟล์ / หลายระบบ</li>
@@ -57,7 +57,7 @@ export default function FixAssetPage() {
                         </div>
 
                         <div className="space-y-4">
-                            <h2 className="text-2xl font-bold flex items-center gap-2 text-emerald-600 dark:text-emerald-400">Solution</h2>
+                            <h2 className="text-2xl font-bold flex items-center gap-2 text-accent-ink">Solution</h2>
                             <div className="bg-bg-color p-6 rounded-2xl text-text-sub h-full">
                                 <ul className="list-disc list-inside space-y-2">
                                     <li>Workflow อนุมัติหลายระดับตามโครงสร้าง GISTDA เชื่อมกับ process พัสดุ-จัดซื้อ</li>
@@ -69,8 +69,8 @@ export default function FixAssetPage() {
 
                     {/* Scope */}
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">ขอบเขตงาน (Scope)</h2>
-                        <ScopeFlow steps={scopeSteps} accentClass="text-emerald-600 dark:text-emerald-400" />
+                        <h2 className="text-2xl font-bold text-accent-ink">ขอบเขตงาน (Scope)</h2>
+                        <ScopeFlow steps={scopeSteps} />
                     </div>
 
                     {/* Main Content Sections */}
@@ -78,7 +78,7 @@ export default function FixAssetPage() {
 
                         {/* System Overview */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">ภาพรวมของระบบ (System Overview)</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-accent-ink">ภาพรวมของระบบ (System Overview)</h2>
                             <div className="bg-bg-color p-6 rounded-2xl">
                                 <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 shadow-sm border border-border-color">
                                     <Image
@@ -96,7 +96,7 @@ export default function FixAssetPage() {
 
                         {/* My Role & Responsibilities */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-6 text-emerald-600 dark:text-emerald-400">My Role & Responsibilities</h2>
+                            <h2 className="text-2xl font-bold mb-6 text-accent-ink">My Role & Responsibilities</h2>
                             <div className="bg-bg-color p-8 rounded-2xl text-text-sub space-y-10">
 
                                 {/* 1. Workflow Design */}
@@ -185,7 +185,7 @@ export default function FixAssetPage() {
 
                         {/* Impact & Learnings */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Impact & Learnings</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-accent-ink">Impact & Learnings</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="bg-bg-color p-6 rounded-2xl">
                                     <h3 className="font-bold text-lg mb-3 text-text-main">Impact</h3>
